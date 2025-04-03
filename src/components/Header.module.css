@@ -1,0 +1,38 @@
+.header {
+  font-size: 30px;
+  transition: transform 500ms linear, color 500ms linear;
+  &:hover {
+    color: #000000;
+    transform: scale(1.5);
+    &:after {
+      content: "";
+      width: 100%;
+      height: 2px;
+      background-color: #000000;
+      display: block;
+    }
+  }
+}
+.headerParagraph {
+  font-size: 16px;
+  text-align: center;
+  transition: transform 500ms linear, color 500ms linear;
+  &:hover {
+    transform: scale(1.1);
+    &:after {
+      content: "";
+      width: 100%;
+      height: 2px;
+      background-color: #ffffff;
+      display: block;
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .header {
+    font-size: 50px;
+  }
+  .headerParagraph {
+    font-size: 26px;
+  }
+}
