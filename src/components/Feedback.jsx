@@ -1,20 +1,26 @@
+import clsx from "clsx";
 import styles from "./Feedback.module.css";
 
 const Feedback = ({ good, neutral, bad, totalPoints, positive }) => {
-  const getClassName = (value) => {
-    if (value > 0) {
-      return styles.change;
-    } else {
-      return styles.feedbackItem;
-    }
-  };
   return (
     <div className={styles.feedbackList}>
-      <p className={`${getClassName(good)}`}>Good:{good}</p>
-      <p className={`${getClassName(neutral)}`}>Neutral:{neutral}</p>
-      <p className={`${getClassName(bad)}`}>Bad:{bad}</p>
-      <p className={`${getClassName(totalPoints)}`}>Total:{totalPoints}</p>
-      <p className={`${getClassName(positive)}`}>Positive:{positive}%</p>
+      <p className={clsx(styles.feedbackItem, good > 0 && styles.change)}>
+        Good:{good}
+      </p>
+      <p className={clsx(styles.feedbackItem, neutral > 0 && styles.change)}>
+        Neutral:{neutral}
+      </p>
+      <p className={clsx(styles.feedbackItem, bad > 0 && styles.change)}>
+        Bad:{bad}
+      </p>
+      <p
+        className={clsx(styles.feedbackItem, totalPoints > 0 && styles.change)}
+      >
+        Total:{totalPoints}
+      </p>
+      <p className={clsx(styles.feedbackItem, positive > 0 && styles.change)}>
+        Positive:{positive}%
+      </p>
     </div>
   );
 };
